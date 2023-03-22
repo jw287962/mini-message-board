@@ -1,6 +1,6 @@
 var express = require('express');
 var router = express.Router();
-
+const messageController = require('../controllers/messageController')
 // const messages = [
 //   {
 //     text: "Hi there!",
@@ -14,11 +14,12 @@ var router = express.Router();
 //   }
 // ];
 /* GET home page. */
-router.get('/', function(req, res, next) {
-  res.render('index', 
-  { title: 'Mini Message Board',
-    messages: messages,  
-  });
-});
+// router.get('/', function(req, res, next) {
+//   res.render('index', 
+//   { title: 'Mini Message Board',
+//     messages: messages,  
+//   });
+// });
+router.get('/',  messageController.message_list)
 
 module.exports = router;
