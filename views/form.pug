@@ -1,0 +1,14 @@
+extends layout
+
+block content
+  h1= title
+  p New Message #{title}
+
+  form.col(method="post" action="/new")
+    label( for="name") Name:
+    input(type="text" id="name" name="name")
+    label( for="message") Message:
+    textarea(id="message" name="message") 
+    button(type="submit") Submit
+    
+        

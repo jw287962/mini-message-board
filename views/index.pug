@@ -1,0 +1,12 @@
+extends layout
+
+block content
+  h1= title
+  p Welcome to #{title}
+
+  dd 
+    each message in messages 
+      dl 
+        h3 #{message.user} #{message.added}:
+        p.indent #{message.text}
+        
