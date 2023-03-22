@@ -4,6 +4,8 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 
+const mongoose = require('mongoose');
+
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var formRouter = require('./routes/new')
@@ -21,8 +23,8 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
-app.use('/users', usersRouter);
 app.use('/new', formRouter);
+app.use('/users', usersRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
@@ -40,4 +42,13 @@ app.use(function(err, req, res, next) {
   res.render('error');
 });
 
+// set up mongoose connection
+
+mongoose.set('strictQuery',false);
+
+const mongoDB = 'mongodb+srv://admin:x1CCmaMU8SnJWzFS@cluster0.lrw9zb7.mongodb.net/messages?retryWrites=true&w=majority';
+main().catch(err => console.log(err));
+async function main(){
+  await mongoose.connect(mongoDB);
+}
 module.exports = app;
