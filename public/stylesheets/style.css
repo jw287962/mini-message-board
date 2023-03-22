@@ -2,17 +2,39 @@ body {
   padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
-
+/* nav */
+.sidebar-nav{
+  padding: 0px;
+  margin: 0px;
+  list-style: none;
+  width: fit-content;
+}
+.sidebar-nav>li{
+  border-bottom: 1px solid grey;
+}
+.sidebar-nav>li:hover{
+  color: unset;
+}
 a {
   color: #00B7FF;
 }
+
 
 .indent{
   margin-left: 10px;
 }
 
-form{
+/* MESSAGES */
+.message{
+  border: 1px solid black;
 }
+.msgtop{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+/* BASE  */
 .col{
   display: flex;
   flex-direction: column;
