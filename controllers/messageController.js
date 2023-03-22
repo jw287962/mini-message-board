@@ -17,12 +17,12 @@ exports.message_list = ( req , res, next) => {
 
 // create
 exports.message_create = ( req , res, next) => {
-  console.log(req.body.mesasge );  
-  messageCreate(req.body.user,req.body.message);
-  res.send('message created: ')
+  console.log(req.body);  
+  messageCreate(req.body.name,req.body.message);
+  res.redirect('/')
 }
 async function messageCreate(user,message) {
-  const newMesasge = new Message({user: user, message: message});
+  const newMesasge = new Message({user: user, message: message, added: new Date()});
   await newMesasge.save();
   console.log(`Added message: ${message}`);
 }
